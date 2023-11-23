@@ -42,6 +42,7 @@ const rootReducer = (state = initialState, action) => {
         return {
           ...state,
           favMovies: [...state.favMovies, action.payload],
+          movies: state.movies.filter((movie) => movie.id !== action.payload.id)
         };
       }
 
@@ -51,6 +52,7 @@ const rootReducer = (state = initialState, action) => {
         favMovies: state.favMovies.filter(
           (movie) => movie.id !== action.payload
         ),
+        movies: [...state.movies, state.favMovies.find((movie) => movie.id === action.payload)] //favorilerden cikarilanlar film listesine geri ekleniyor
       };
     default:
       return state;

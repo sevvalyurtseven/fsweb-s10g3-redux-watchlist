@@ -73,21 +73,24 @@ function App() {
                 </button>
               </>
             )}
+            {movies.length > 0 && (
+              <>
+                <button
+                  disabled={movies.length - 1 === sira}
+                  onClick={handleNext}
+                  className="select-none px-4 py-2 border border-blue-700 text-blue-700 hover:border-blue-500 hover:text-blue-500"
+                >
+                  Sıradaki
+                </button>
 
-            <button
-              disabled={movies.length - 1 === sira}
-              onClick={handleNext}
-              className="select-none px-4 py-2 border border-blue-700 text-blue-700 hover:border-blue-500 hover:text-blue-500"
-            >
-              Sıradaki
-            </button>
-
-            <button
-              onClick={handleAddFavorite}
-              className="select-none px-4 py-2 bg-blue-700 hover:bg-blue-600 text-white"
-            >
-              Listeme ekle
-            </button>
+                <button
+                  onClick={handleAddFavorite}
+                  className="select-none px-4 py-2 bg-blue-700 hover:bg-blue-600 text-white"
+                >
+                  Listeme ekle
+                </button>
+              </>
+            )}
           </div>
         </Route>
 

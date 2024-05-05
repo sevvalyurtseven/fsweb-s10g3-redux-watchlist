@@ -54,7 +54,7 @@ function App() {
       </nav>
       <Switch>
         <Route exact path="/">
-          <Movie sira={sira} />
+          {movies.length > 0 && <Movie sira={sira} />}
 
           <div className="flex gap-3 justify-end py-3">
             {sira > 0 && (

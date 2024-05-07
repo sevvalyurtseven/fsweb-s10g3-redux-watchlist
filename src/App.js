@@ -54,7 +54,11 @@ function App() {
       </nav>
       <Switch>
         <Route exact path="/">
-          {movies.length > 0 && <Movie sira={sira} />}
+          {movies.length > 0 ? (
+            <Movie sira={sira} />
+          ) : (
+            <div className="flex justify-center">Eklenecek Film Bulunamadı</div>
+          )}
 
           <div className="flex gap-3 justify-end py-3">
             {sira > 0 && (
@@ -67,7 +71,7 @@ function App() {
                 </button>
                 <button
                   onClick={handlePrev}
-                  className="select-none px-4 py-2 border border-blue-700 text-blue-700 hover:border-blue-500 hover:text-blue-500"
+                  className="select-none px-4 py-2 border border-blue-700 text-blue-700 disabled:opacity-25 hover:border-blue-500 hover:text-blue-500"
                 >
                   Önceki
                 </button>
